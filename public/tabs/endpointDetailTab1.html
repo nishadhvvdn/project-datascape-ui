@@ -1,0 +1,163 @@
+<div class="container-fluid">
+    <div class="row">
+        <form name="basicInfo_form" novalidate>
+            <div class="col-md-6">
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <label>Meter Serial Number </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.meterSl"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Server Name </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.make"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>ApTitle </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.meterVersion"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Native Address </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.phases"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Installation Time </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.applicationType"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Comm Module </label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.installationType"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Endpoint Register </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.ratedVoltage"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Current TOU Season</label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.frequency"></span></label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Pending TOU Season </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.nominalCurrent"></span></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-6">
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <label>Electronic Serial Number</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.measurementClass"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Relay</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.measurementClass"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Device Class</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.measurementClass"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Configuration Group</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.meterDisconnector"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Last Read TIme</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.ctRatio"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>HAN Module</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.ptRatio"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label></label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.BiDirectional"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Start Date</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.SealID"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Start Date</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.SealID"></span></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <button>Node Ping</button>
+</div>

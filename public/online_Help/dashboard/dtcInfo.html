@@ -1,0 +1,179 @@
+<div class="pagetitle-wrap">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/icon_dtc2.png" class="heading_icon"/></span> DTC Info</h3>
+    </div>
+<div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Modifying the DTC Info</a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Reading the DTC info</a>
+                    <a ng-click="tabChange('exportingReport')" href="" ng-class = "tabs.exportingReport  ? 'active' : ''">EV Chargers List</a>
+                    <a ng-click="tabChange('addReport')" href="" ng-class = "tabs.addReport  ? 'active' : ''">KW Return List </a>
+                    <a ng-click="tabChange('editReport')" href="" ng-class = "tabs.editReport  ? 'active' : ''">Errors/Warnings List</a>
+                    <a ng-click="tabChange('setReport')" href="" ng-class = "tabs.setReport  ? 'active' : ''">Phase Angle</a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Modifying the DTC Info</h1>
+                    <p class="tabParagraph">
+                        To modify what DTCs are included when calculating the numbers used for the Distribution
+                        Transformer
+                        Circuit Info dashboard simply click the "Select Distribution Transformer Circuit" dropdown and
+                        select
+                        the DTCs you wish to be used for the calculations.
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/dashsummarymaphelp.png" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Reading the DTC info</h1>
+                    <p class="tabParagraph">
+                        The DTC info dashboard shows a myriad of stats related to the DTCs in the system. These are used
+                        to
+                        give
+                        you a high-level overview of the system's current health. The dashboard contains ten unique
+                        displays
+                        which are each described in the following list.
+                    </p>
+                    <ul class="tabList">
+                        <li>1. <strong>24 hrs Total Power Flow (kW):</strong> This box shows the total amount of
+                            energy in the last 24 hours that has flown through the DTCs to the downstream devices.
+                        </li>
+                        <li>2. <strong>24 hrs Avg. Power Factor:</strong> This box shows the average power factor in
+                            the last 24 hours for the displayed DTCs.</li>
+                        <li>3. <strong>24 hrs Avg. Current (A):</strong> This box shows the average current in the
+                            last 24 hours for the displayed DTCs.</li>
+                        <li>4. <strong>24 hrs Avg. Voltage (V):</strong> This box shows the average voltage in the
+                            last 24 hours for the displayed DTCs.</li>
+                        <li>5. <strong>Non-Technical Loss this Month:</strong> This box shows the total amount of
+                            loss in the currency you have set for the month.</li>
+                        <li>6. <strong>Transformers:</strong> This box shows the number of transformers connected to
+                            the displayed DTCs.</li>
+                        <li>7. <strong>Meters:</strong> This box shows the number of meters connected to the
+                            displayed DTCs.</li>
+                        <li>8. <strong>EV Chargers:</strong> This box shows the number of electric vehicle chargers
+                            connected to the displayed DTCs.</li>
+                        <li>9. <strong>Return (kW):</strong> This box shows the total amount of energy returned by
+                            each displayed DTC.</li>
+                        <li>10. <strong>Errors/Warnings:</strong> This box shows the total number of errors or
+                            warnings being reported by the DTCs.</li>
+                    </ul>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/readingDTC.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.exportingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">EV Chargers List</h1>
+                    <p class="tabParagraph">
+                        When the EV Chargers box is clicked, you will be taken to a detailed list. This list will
+                        display
+                        all
+                        meters that are registered as an EV charger with the total amount of load over a specified
+                        period of
+                        time. The time period can be twenty-four hours, seven days, or thirty days depending on which
+                        option
+                        you
+                        select from the radio buttons at the bottom left of the screen will also display the total
+                        number of
+                        EV
+                        chargers and the total load on all the displayed chargers.
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/evchargerhelp.png" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.addReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">KW Return List</h1>
+                    <p class="tabParagraph">
+                        When the KW Return box is clicked, you will be taken to a detailed list. The list will display
+                        all
+                        meters with return, along with the amount of return over a specified period of time. The time
+                        period
+                        can
+                        be twenty-four hours, seven days, or thirty days depending on which option you select from the
+                        radio
+                        buttons at the bottom middle of the screen. The page will also display the total return.
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/kwReturns.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.editReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Errors/Warnings List</h1>
+                    <p class="tabParagraph">
+                        When the errors/warnings box is clicked, you will be taken to a detailed list. The list will
+                        display
+                        all
+                        devices reporting errors or warnings. This list contains three filter dropdowns: one for DTC
+                        selection,
+                        another for transformers, and a final one for filtering by meter.</p>
+                        <div class="tabimg-blk mb-20"><img alt="#" src="../../assets/images/errorsumfilterhelp.png"/></div>
+                        <p class="tabParagraph">The list itself has six columns, as described in the following list:</p>
+                    <ul class="tabList">
+                        <li>1. <strong>DTC ID:</strong> This column shows the ID of the DTC where the alarm is being
+                            reported.</li>
+                        <li>2. <strong>Transformer ID:</strong> This column shows the ID of the transformer where the
+                            alarm is being reported.</li>
+                            <li>3. <strong>HyperSPROUT&trade; ID:</strong> This column shows the ID of the HyperSPROUT&trade; where the
+                                alarm is being reported.</li>
+                        <li>4. <strong>Meter ID:</strong> This column shows the ID of the meter where the alarm is being
+                            reported.
+                            Note, this will say HyperSPROUT™ alarm if the alarm is specifically coming from a
+                            HyperSPROUT™
+                            and
+                            no
+                            meters are involved.</li>
+                        <li>5. <strong>DB Timestamp:</strong> A timestamp will be shown here denoting when the alarm or
+                            warning
+                            was
+                            received.</li>
+                        <li>6. <strong>Alarm Type:</strong> The type of alarm (IE outage, tampering, battery failure,
+                            etc.)
+                            will
+                            be
+                            shown here.</li>
+                    </ul>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/errorsumhelp.png" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.setReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Phase Angle</h1>
+                    <p class="tabParagraph">
+                        The phase is defined as the position of the waveform at a fraction of time period. Phase is expressed in angle or radian. Phase can also be an expression of relative displacement between two corresponding features (for example, peaks or zero crossings) of two waveforms having the same frequency.
+
+                        For the phase angle functionality in the DataSCAPE&trade; user needs to click on the power factor on the dashboard. It will take the User to the page where we can see the phasor graphs page.
+                    
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/dtcDropdown.PNG" /></div>
+                    <h1 class="tabTitle">Phasor Graph</h1>
+                    <p class="tabParagraph">
+                        On the phasor graphs page we have the DTC and transformer filter users need to select a particular DTC for which they want to see the transformer phasor graph. Once the fields are selected the graph will be displayed.
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/phasehelp.png" style=" width: 70% ;margin-top:1%" /></div>
+                    <h1 class="tabTitle">Sine Wave Graph</h1>
+                    <p class="tabParagraph">
+                        To see the sign wave graph, users need to select the graph type as Sine Wave. According to the filters selected it will plot the sine wave graph.
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/sinehelp.png" style=" width: 70% ;margin-top:1%"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

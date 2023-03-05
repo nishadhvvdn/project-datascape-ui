@@ -1,0 +1,118 @@
+<div class="phasorgraphContainer">
+
+    <div class="phasor-sin-graph-left">
+        <form name="form">
+        <div class="phasor-graph-dropdowns">
+            <label>Select Graph Type</label>
+            <select ng-model="graphType" ng-change="changeGrpah()">
+                <option value="phasorGraph">Phasor Graph</option>
+                <option value="sineWaveGraph">Sine Wave Graph</option>
+            </select>
+        </div>
+        <div class="phasor-graph-dropdowns">
+            <label>Circuit ID</label>
+            <select name="CircuitID" ng-model="selectedCircutID" ng-options="listcircuit.DTC for listcircuit in circuitList track by listcircuit.DTCID" ng-change="changeCircuitID()">
+            </select>
+        </div>
+        <div class="phasor-graph-dropdowns">
+            <label>Transformer ID</label>
+            <select name="TransformerID" ng-model="selectedTransformerID" ng-options="listtransformer.TransformerSerialNumber for listtransformer in transformerList track by listtransformer.TransformerID">
+            </select>
+        </div>
+        <div class="phasor-graph-dropdowns dropdown" ng-show="graphType === 'sineWaveGraph'">
+            <label>Start Time</label>
+            <div class="phasor-time-blk">
+                <div class="input-wrap">
+                    <a class="dropdown-toggle" id="dropdownStart" role="button" data-toggle="dropdown"
+                       data-target="#">
+                        <div class="input-group date">
+                            <input type="text" class="form-control" style="background-color: white;"
+                                   data-ng-model="dateRangeStart" placeholder="Select Start Time" required
+                                   disabled>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker data-ng-model="dateRangeStart"
+                                        data-datetimepicker-config="{ dropdownSelector: '#dropdownStart', renderOn: 'end-date-changed' }"
+                                        data-on-set-time="startDateOnSetTime()"
+                                        data-before-render="startDateBeforeRender($dates)">
+                        </datetimepicker>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="phasor-graph-dropdowns dropdown" ng-show="graphType === 'sineWaveGraph'">
+            <label>End Time</label>
+            <div class="phasor-time-blk">
+                <div class="input-wrap">
+                    <a class="dropdown-toggle" id="dropdownEnd" role="button" data-toggle="dropdown"
+                       data-target="#">
+                        <div class="input-group date">
+                            <input type="text" class="form-control" style="background-color: white;"
+                                   data-ng-model="dateRangeEnd" placeholder="Select End Time" required disabled>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <datetimepicker data-ng-model="dateRangeEnd"
+                                        data-datetimepicker-config="{ dropdownSelector: '#dropdownEnd', renderOn: 'start-date-changed' }"
+                                        data-on-set-time="endDateOnSetTime()"
+                                        data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)">
+                        </datetimepicker>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ng-if="disableDate && graphType === 'sineWaveGraph'">
+            <span class="error-message-graph">*Start and End Date range should not more than 24 hours</span><br />
+        </div>
+        <div class="phasor-graph-dropdowns">
+            <button class="yellowBtn demandReadSettings" ng-click="createGraph()" ng-show="graphType === 'sineWaveGraph'" ng-disabled="form.$invalid || !sineBtnClickable || disableDate || !selectedTransformerID">Generate Graph</button>
+            <button class="yellowBtn demandReadSettings" ng-disabled="!selectedTransformerID || !phaseBtnClickable" ng-click="createPhaseGraph()" ng-show="graphType === 'phasorGraph'">Generate Graph</button>
+        </div>
+    </form>
+    </div>
+    <div class="phasor-sin-graph-right">
+        <div class="phasor-heading">
+            <span ng-show="graphType === 'phasorGraph'">Phasor Graph</span>
+            <span ng-show="graphType === 'sineWaveGraph'">Sine Wave Graph</span>
+            <div class="transformer-details-align">
+                <span>Transformer ID: {{selectedTransformerID['TransformerSerialNumber']}}</span><br>
+                <span>Number of Phases: {{selectedTransformerID['TransformerSerialNumber'] ? selectedTransformerID['Phase'] ? phases[selectedTransformerID['Phase']] : 'Three Phase' : ''}}</span>
+            </div>
+        </div>
+        <div class="phasor-graph-area">
+            <div>
+                <div ng-show="graphType === 'sineWaveGraph' && showSineWave" id="waveForm" style="width:90%"></div>
+                <div ng-show="graphType === 'sineWaveGraph'" class="graph-loading-text">{{sinewaveCommonMsg}}</div>
+            </div>
+            <div class="diagram" ng-show="graphType === 'phasorGraph'">
+                <div id="phasor" style="width:400px;height:400px; margin: auto;"></div>
+
+
+                <div class="Color-Label" ng-show="validData">
+                    <ul>
+                        <li><span class="Black"></span>V1 : {{ phasorData.data[0].samples[0] }}</li>
+                        <li><span class="dBlack"></span>I1 : {{ phasorData.data[3].samples[0] }}</li>
+                        <li><span class="Red"></span>V2 : {{phasorData.data[1].samples[0] }} </li>
+                        <li><span class="dRed"></span>I2 : {{ phasorData.data[4].samples[0] }}</li>
+                        <li><span class="Blue"></span>V3 : {{phasorData.data[2].samples[0] }} </li>
+                        <li><span class="dBlue"></span>I3 : {{ phasorData.data[5].samples[0] }}</li>
+                        <div class="clear-flot"></div>
+                    </ul>
+                    <ul class="second-label">
+                        <li>&#8736 V1 & I1 :{{ (phasorData.data[3].angle - 0).toFixed(6) }} &#176 </li>
+                        <li>&#8736 V2 & I2 :{{ (phasorData.data[4].angle - 120).toFixed(6) }} &#176 </li>
+                        <li>&#8736 V3 & I3 :{{ (phasorData.data[5].angle - 240).toFixed(6) }} &#176 </li>
+                        <div class="clear-flot"></div>
+                    </ul>
+
+                </div>
+                <div class="Color-Label" ng-show="!validData">
+                   {{ commonMsg }}
+                </div>
+            </div>
+            </div>
+    </div>
+</div>

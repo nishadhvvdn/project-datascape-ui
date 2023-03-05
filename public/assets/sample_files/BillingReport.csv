@@ -1,0 +1,2 @@
+Unit,Account,RC,Meter no,Physical mtr no,Dials,Calcparm,Factor,Route,Old reading,Old date,New reading,New date,Street,Street no,Name,Initials,Erf number,Flat reference,Meter location,Average,ErrorCode,Latitude,Longitude
+1,1234,1,'0000000000002202057500012’,'0000000000002202057500012’,8976,98374,98734,9578,0,2022/08/06,,,87,98357,Delta,N S,87571,xyz,Guthrie LN,98375,35987,36.404497,-105.586728

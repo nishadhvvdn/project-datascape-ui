@@ -1,0 +1,27 @@
+<div class="modal-header">
+	<h4 class="modal-title"><strong>Endpoint Details {{meterdetails.meterSl}}</strong></h4>
+</div>
+<div class="container-fluid">
+	<div class="modal-body">
+		<form name="viewTransEntry_form" novalidate>
+			<div class="container-fluid">
+				<uib-tabset active="active" class="editModalFont">
+					<uib-tab index="0" heading="Endpoint Details">
+						<div ng-include="'/tabs/endpointDetailTab1.html'"></div>
+					</uib-tab>
+					<uib-tab index="1" heading="MAN Devices">
+						<div ng-include="'/tabs/endpointDetailsMANDevices.html'"></div>
+					</uib-tab>
+					<uib-tab index="1" heading="Groups">
+						<div ng-include="'/tabs/endpointDetailsGroups.html'"></div>
+					</uib-tab>
+				</uib-tabset>
+
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class='modal-footer'>
+	<button type="button" class="btn btnColorGrey" ng-click="cancel()">Cancel</button>
+</div>

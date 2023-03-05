@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="../js/model/cloudStatus.js"></script>
+	<link href="stylesheets/lib/bootstrap.css" rel="stylesheet" />
+	<link href="stylesheets/css/styles.css" rel="stylesheet" /> 
+</head>
+
+<body class="mainBody" onload="load()">
+	<div class="title-wrapper mt-20">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<h4 class="pageTitle"><strong>Cloud Status Dashboard</strong></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<p style="text-align:center" id="msg"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="mainTable">
+		<div class="tableWrap">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12">
+						<table>
+							<tr>
+								<td colspan="2" style="text-align:center;background-color: #c0c0c0;">
+									<div id="cost">
+										<label>Projected Cost: $0</label>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="Regions">Azure Regions</label>
+									<select id="Regions" name="Regions" class="styled-select">
+										<option value="East" class="dropHead">East US</option>
+									</select>
+									<p></p>
+									<div>
+										<table id="CloudServices" style="text-align:left">
+											<tr>
+												<th style="background-color: #c0c0c0; color: #333;">
+													Status</th>
+												<th style="background-color: #c0c0c0; color: #333;">
+													Resources</th>
+											</tr>
+										</table>
+									</div>
+								</td>
+								<td>
+									<label for="Regions">Azure Regions</label>
+									<select id="Regions" name="Regions" class="styled-select">
+										<option value="East">East US</option>
+									</select>
+									<p></p>
+									<div id="tb2">
+										<table id="actService" style="text-align:right">
+											<tr>
+												<th style="background-color: #c0c0c0; color: #333;">
+													Name</th>
+												<th style="background-color: #c0c0c0; color: #333;">
+													Type</th>
+												<th style="background-color: #c0c0c0; color: #333;">
+													Group</th>
+												<th style="background-color: #c0c0c0; color: #333;">
+													Status</th>
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

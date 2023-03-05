@@ -1,0 +1,133 @@
+<div class="pagetitle-wrap">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/icon_billing2.png"  class="heading_icon"/></span> Billing
+        </h3>
+    </div>
+<div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Uploading a Bill</a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Reading the Report</a>
+                    <a ng-click="tabChange('exportingReport')" href="" ng-class = "tabs.exportingReport  ? 'active' : ''">Sorting the Report
+                       </a>
+                    <a ng-click="tabChange('addReport')" href="" ng-class = "tabs.addReport  ? 'active' : ''">Exporting a Report</a>
+                    <a ng-click="tabChange('filterReport')" href="" ng-class = "tabs.filterReport  ? 'active' : ''">Exporting an Old Report
+                       </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Uploading a Bill </h1>
+
+                    <p class="tabParagraph">
+                        To upload a billing input file (this is used to identify what meters to pull readings from and
+                        their
+                        account information), just click the "Upload File" button. Then, choose the input to upload by
+                        clicking
+                        the "choose file" button in the resulting window. After clicking import the file will be
+                        imported
+                        and
+                        the meters in the upload file will appear in the list below. </p>
+                        <div class="tabimg-blk"><img alt="#" src="../../assets/images/uploadFile.PNG" /></div>
+                   
+
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Reading the Report </h1>
+
+                    <p class="tabParagraph">
+                        The billing report shows the uploaded bill (or nothing if no bill has been uploaded yet). The
+                        report
+                        contains eight columns.
+                    </p>
+                    <ul class="tabList">
+                        <li>1. <strong>Account:</strong> Taken from the uploaded input file, this shows theaccount number
+                            for
+                            the
+                            meter in the client's billing system.</li>
+                        <li>2. <strong>Physical Mtr No:</strong> The serial number of the meter</li>
+                        <li>3. <strong>Old Reading:</strong> The last kw reading made on the meter</li>
+                        <li>4. <strong>Old Date:</strong> The date the last reading was made</li>
+                        <li>5. <strong>New Reading:</strong> The newest kw reading the system could pull</li>
+                        <li>6. <strong>New Date:</strong> The date the newest reading was pulled from</li>
+                        <li>7. <strong>Latitude:</strong> The latitude where the meter is located</li>
+                        <li>8. <strong>Longitude:</strong> The longitude where the meter is located</li>
+                    </ul>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/billinglisthelp.png" /></div>
+                    <p class="tabParagraph">
+                        If the report has a large amount of data, it might separate into pages. In this case, you can
+                        choose
+                        how
+                        many entries to display, or which page to show, from the pagination tool bar in the bottom left
+                        of
+                        the
+                        report.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/paginationToolbar.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.exportingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Sorting the Report </h1>
+
+                    <p class="tabParagraph">
+                        To sort the report, click the header of whichever column you would like to sort by. For
+                        instance,
+                        clicking on the Account number header will switch the column between the default display,
+                        ascending
+                        account numbers, and descending account numbers
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/sortBilling.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.addReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Exporting a Report </h1>
+
+                    <p class="tabParagraph">
+                        The report gives four different options for exporting. You may export either all the data in the
+                        report
+                        or just the currently displayed data, in either a CSV format or a PDF format. To do this, simply
+                        click
+                        on the export button in the top right corner of the report after filtering it for the desired
+                        data.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/exportButton.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.filterReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Exporting an Old Report </h1>
+
+                    <p class="tabParagraph">
+                        To export an old billing report (i.e. a report with a new reading date of your choosing rather
+                        then
+                        the
+                        newest available) click the "Export File" button. Then put in a time for when the new reading
+                        should
+                        be
+                        taken from and click export.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/exportFileBilling.PNG" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

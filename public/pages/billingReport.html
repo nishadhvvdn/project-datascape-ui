@@ -1,0 +1,40 @@
+﻿<!-- New Code -  02112016--> 
+<div ng-show="isValidHostIframe" id="billingReportDiv">
+	<div class="title-wrapper mt-20">
+		<div  class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<h4 class="pageTitle"><strong>Billing Report</strong></h4>
+					<div class="pull-right">
+<!--						<button type="button" ng-click="openExportBillingReport()" class="btn btnColorYellow">-->
+<!--							Export File-->
+<!--						</button>-->
+						<button type="button" ng-click="openUploadBillingReport()" class="btn btnColorGrey">
+							Upload File
+						</button>
+						<!--<button type="button" name="export" ng-disabled="true" class="btn btn-default btnColor" ng-click="exportReportAsCsv()">
+							Export as .CSV
+						</button>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="title-wrapper">
+		<div  class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12" ng-if="showTable">
+					<div ui-grid="billingReportGrid" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns
+					ui-grid-filter-container class="grid">
+						<div class="watermark" ng-show="!billingReportGrid.data.length">
+							{{commonMsg}}
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div ui-view></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

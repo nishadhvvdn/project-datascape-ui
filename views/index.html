@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+
+<html> 
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Delta DataSCAPE&trade;</title>
+</head>
+
+
+<body class="mainBody" ng-app="dataSCAPEApp" ng-controller="homePageCtrl" style="overflow:hidden">
+    <div ui-view></div>
+
+    <!-- Load Bootstrap -->
+    <link href="stylesheets/lib/bootstrap.css" rel="stylesheet" />
+    <link href="stylesheets/lib/datetimepicker.css" rel="stylesheet" />
+    <link href="stylesheets/lib/angularjs-datetime-picker.css" rel="stylesheet" />
+    <link href="stylesheets/css/style.css" rel="stylesheet" />
+    <link href="stylesheets/css/help.css" rel="stylesheet" />
+    <link href="stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- UI Grid CSS -->
+    <link href="stylesheets/lib/ui-grid.css" rel="stylesheet" />
+    <link href="stylesheets/lib/ui-grid.eot" rel="stylesheet" />
+    <link href="stylesheets/lib/ui-grid.svg" rel="stylesheet" />
+    <link href="stylesheets/lib/ui-grid.ttf" rel="stylesheet" />
+    <link href="stylesheets/lib/ui-grid.woff" rel="stylesheet" />
+    <link href="stylesheets/lib/sweetalert.css" rel="stylesheet" />
+    <link href="stylesheets/lib/pure-min.css" rel="stylesheet" />
+
+    <!-- Lib JS includes -->
+    <script src="js/lib/jquery-2.2.4.js"></script>
+
+    <!-- Angular JS includes -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/angularjs-datetime-picker.js"></script>
+    <script src="js/lib/angular-ui-router.js"></script>
+    <script src="js/lib/angular-animate.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-0.14.2.js"></script>
+    <script src="js/lib/ui-grid.js"></script>
+    <script src="js/lib/angular-touch.js"></script>
+    <script src="js/lib/pdfmake.min.js"></script>
+    <script src="js/lib/apex-chart.js"></script>
+    <script src="js/lib/csv.js"></script>
+    <script src="js/lib/vfs_fonts.js"></script>
+    <script src="js/lib/angular-messages.min.js"></script>
+    <script src="js/lib/jasmine_2.3.3.min.js"></script>
+    <script src="js/lib/angular-sanitize.min.js"></script>
+    <script src="js/lib/bootstrap-treeview.min.js"></script>
+    <script src="js/lib/angular-ui-switch.min.js"></script>
+    <script src="js/lib/ng-file-upload.min.js"></script>
+    <script src="js/lib/ng-file-upload-shim.min.js"></script>
+    <script src="js/lib/moment.js"></script>
+    <script src="js/lib/datetimepicker.js"></script>
+    <script src="js/lib/datetimepicker.templates.js"></script>
+    <script src="js/lib/jspdf.js"></script>
+    <script src="js/lib/dsp.js"></script>
+    <script src="js/lib/acwf-core.js"></script>
+    <script src="js/lib/acwf-canvas.js"></script>
+    <script src="js/lib/moment-timezone-with-data.min.js"></script>
+
+    <!-- Library for Sweet Alert-->
+    <script src="js/lib/sweetalert.min.js"></script>
+
+    <!-- Bootstrap JS includes -->
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/csvparser.js"></script>
+    <script src="js/lib/angular-breadcrumb.js"></script>
+
+    <!-- Controller JS includes -->
+    <script src="js/controllers/dataSCAPEController.js"></script>
+
+    <!-- Directive JS includes-->
+    <script src="js/directives/fileReader.js"></script>
+    <script src="js/directives/angular-file-model.js"></script>
+
+    <!-- Services JS includes -->
+    <script src="js/model/constants.js"></script>
+    <script src="js/model/cachedetails.js"></script>
+    <script src="js/services/initservice.js"></script>
+    <script src="js/services/refreshservice.js"></script>
+    <script src="js/services/deviceservice.js"></script>
+    <script src="js/services/networkservice.js"></script>
+    <script src="js/services/networkutilservice.js"></script>
+    <script src="js/services/csvparser.js"></script>
+    <script src="js/services/onlineHelpService.js"></script>
+    <script src="js/services/optionDataService.js"></script>
+    <script src="js/services/modeDataServices.js"></script>
+    <!-- Controller JS includes -->
+    <script src="js/controllers/homePageCtrl.js"></script>
+    <script src="js/controllers/networkResponseReportCtrl.js"></script>
+    <script src="js/controllers/solarPanelReportCtrl.js"></script>
+    <script src="js/controllers/batteryLifeReportCtrl.js"></script>
+    <script src="js/controllers/deviceErrorReportCtrl.js"></script>
+    <script src="js/controllers/delayedResponseReportCtrl.js"></script>
+    <script src="js/controllers/outageReportCtrl.js"></script>
+    <script src="js/controllers/networkStatisticsCtrl.js"></script>
+    <script src="js/controllers/networkStatisticsMeterCtrl.js"></script>
+    <script src="js/controllers/billingReportCtrl.js"></script>
+    <script src="js/controllers/openUploadBillingReportCtrl.js"></script>
+    <script src="js/controllers/openExportBillingReportCtrl.js"></script>
+    <script src="js/controllers/dbStatisticsCtrl.js"></script>
+    <script src="js/controllers/nonTechnicalLossCtrl.js"></script>
+    <script src="js/controllers/onlineHelpCtrl.js"></script>
+    <script src="js/controllers/inValidAccessCtrl.js"></script>
+    <script src="js/controllers/phaserGraphsCtrl.js"></script>
+    <script src="js/controllers/dataRateCtrl.js"></script>
+    <script src="js/controllers/meterDataRateCtrl.js"></script>
+    <script src="js/controllers/deltaLinkDataRateCtrl.js"></script>
+    <script src="js/controllers/deviceDataRateReportCtrl.js"></script>
+    <!-- Angular Breadcrumb Lib includes-->
+    <!--<script src="js/lib/angular-breadcrumb.js"></script>-->
+</body>
+
+</html>

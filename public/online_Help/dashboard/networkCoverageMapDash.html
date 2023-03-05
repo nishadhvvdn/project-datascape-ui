@@ -1,0 +1,96 @@
+<div class="pagetitle-wrap">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/icon_networkcoverage2.png"  class="heading_icon"/></span> Network
+            Coverage
+            Map</h3>
+    </div>
+<div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Opening the map</a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Navigation Tools</a>
+                    <a ng-click="tabChange('addReport')" href="" ng-class = "tabs.addReport  ? 'active' : ''">Color Coding</a>
+                    <a ng-click="tabChange('editReport')" href="" ng-class = "tabs.editReport  ? 'active' : ''">DTC Control</a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+
+                    <h1 class="tabTitle">Opening the map </h1>
+
+
+                    <p class="tabParagraph">
+                        To open the map to its full screen size simply scroll over any of the DTCs
+                        (you will see a small annotation box with the DTC ID appear when the cursor is correctly
+                        positioned
+                        over
+                        one of the DTC icons) and click the icon.
+                        The screen will expand to fill the entire window instead of its original dashboard size.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/networkCoverageMap.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+
+                    <h1 class="tabTitle">Navigation Tools </h1>
+
+
+                    <p class="tabParagraph">
+                        Every map will display a small vertical bar in the top left corner of the map while you have the
+                        cursor
+                        over the map. From the top, down, the toolbar allows you to search for a specific city, zoom in
+                        and
+                        out,
+                        return to the original display before you started moving around the map, and drag/select.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/navigationTool.PNG"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.addReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+
+                    <h1 class="tabTitle">Color Coding </h1>
+
+
+                    <p class="tabParagraph">
+                        Each icon will be colored either red or green. A green icon indicates the device is not
+                        experiencing
+                        any
+                        network related errors, while a red icon indicates that the device is experiencing network
+                        errors.
+                        These
+                        two icons are shown below.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../assets/images/networkcolorhelp.png" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.editReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+
+                    <h1 class="tabTitle">DTC Control </h1>
+
+
+                    <p class="tabParagraph">
+                        To modify what DTCs are shown on the dashboard simply click the "Select Distribution Transformer
+                        Circuit" dropdown and select the DTCs you wish to be seen.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/dtcDropdown.PNG" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

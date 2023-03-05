@@ -1,0 +1,65 @@
+<div class="pagetitle-wrap">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/icon_cloudstatistics2.png"  class="heading_icon"/> </span>Cloud
+            Statistics
+        </h3>
+    </div>
+<div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Creating a Report
+                    </a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Reading the Report </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Creating a Report</h1>
+
+                    <p class="tabParagraph">
+                        To create a cloud statistics report, simply click the cloud statistics menu bar and a current
+                        report
+                        using the default Azure Region will be created. This will tell you the health of the Azure
+                        services
+                        used in that region. To change the region displayed just click the "Azure Region" dropdown and
+                        change it to the desired region.</p>
+                    <div class="tabimg-blk"><img alt="#" src="../assets/images/exportMenu.png" />
+                    </div>
+                </div>
+            </div>
+
+            </span>
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Reading the Report</h1>
+
+                    <p class="tabParagraph">
+                        Each external Azure service that is used by the DataVINE™ is displayed here, along with a status
+                        provided by Azure. The status represents the current health of that particular resource (i.e. is
+                        Azure receiving a lot of errors from that service at the time or not).
+                    </p>
+                    <p class="tabParagraph">
+                        If the report has a large amount of data, it might separate into pages. In this case, you can
+                        choose
+                        how many entries to display, or which page to show, from the pagination tool bar in the bottom
+                        left
+                        of the report.
+                    </p>
+                    </span>
+                    <div class="tabimg-blk"><img alt="#" src="../assets/images/exportMenu.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

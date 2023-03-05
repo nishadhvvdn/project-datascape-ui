@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <script src="../js/lib/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../stylesheets/css/onDemand.css">
+    <link href="../stylesheets/lib/sweetalert.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div style="position: absolute;left: 50%;transform: translate(-50% , 0%);background-color: #e7e7e7;padding: 20px;text-align: center;">
+        <div>
+            <h3 class="heading">Meter On Demand Read Request</h3>
+            <div><button class="onDemadRead" id="onDemandReadButton" type="button"
+                    onclick="onDemandRead()">On Demand Read</button></div>
+        </div>
+        <div id="ondemandReadMsg" style="padding-top:3px"></div>
+        <div style="text-align:center">
+            <h3 class="heading">Meter Connect/Disconnect Request</h3>
+            <div><button class="btnColorYellow" type="button" id="con" style="width:158px;"
+                    onclick="connectOrDisconnectMeter('Connect')">Connect</button></div>
+            <div><button class="btnColorGrey" type="button" id="dis" style="width:158px;"
+                    onclick="connectOrDisconnectMeter('Disconnect')">Disconnect</button></div>
+            <div id="initMsg"></div>
+        </div>
+        <div id="msg" style="padding-top:3px"></div>
+    </div>
+    <div style="position: absolute;bottom: 5px;color: #666;">
+        Note: To perform the actions above, select the meter on the map to the left.
+    </div>
+    <script src="../js/model/onDemand.js"></script>
+</body>
+
+</html>

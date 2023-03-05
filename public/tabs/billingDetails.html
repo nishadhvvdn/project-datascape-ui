@@ -1,0 +1,85 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <form name="billingDetails_form" novalidate>
+            <div class="col-md-12">
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <label>Consumer Name</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.consumerName"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Consumer Number</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.consumerNumber"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Consumer Address</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.consumerAddress"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Consumer Contact Number</label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.consumerContact"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Impulse Count (per KWh)</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.impulseCountKW"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Impulse Count (per KVARh)</label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.impulseCountKV"></span></label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Billing Cycle Date</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.billingDate"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Billing Time</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.billingTime"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Demand Reset Date</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="meterdetails.demandDate"></span></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

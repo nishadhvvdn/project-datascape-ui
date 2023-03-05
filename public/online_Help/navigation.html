@@ -1,0 +1,233 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="navbar-inverse sideNav-help">
+            <ul class="nav">
+                <li class="logoSection">
+                    <img alt="#" src="../assets/images/logo.png">
+                </li>
+                <li ui-sref-active="activeState"  class="menuStyle configNav">
+                    <a href="" ui-sref="help.home" ng-click="homePage()" class="">
+                            <span class="iconBlk">
+                                    <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
+                                    <img alt="#" src="../assets/images/home-gray.png" class="normalImg">
+                                    <img alt="#" src="../assets/images/home-white.png" class="activeImg">
+                                </span>
+                                <span class="text">Home</span>
+                        </a>
+                </li>
+
+                <li ui-sref-active="activeState" class="menuStyle configNav activeState" ng-class = "showDashboard ? ' ' : 'active'">
+                    <a ui-sref="help.dashboard" href="" class="parentText" ui-sref=""
+                        ng-click="displayDashboard()">
+                        <i class="fa fa-angle-down symbol" ng-show="showDashboard"></i>
+                        <i class="fa fa-angle-up symbol" ng-hide="showDashboard"></i>
+                        <span class="iconBlk">
+                            <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
+                            <img alt="#" src="../assets/images/dashboard-gray.png" class="normalImg">
+                            <img alt="#" src="../assets/images/dashboard-white.png" class="activeImg">
+                        </span>
+                        <span class="text">Dashboard</span>
+                    </a>
+
+                    <ul class="levelFirst">
+
+                        <li ui-sref-active="activeState" ng-hide="showDashboard" ng-click="gotoCommunication()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.dtcInfo" href="" class="configNav"><label class="cursorpoint"
+                                    >DTC Info</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showDashboard" ng-click="gotoSystemUpdate()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.summaryMapDash" href="" class="configNav"><label class="cursorpoint"
+                                    >Summary Map</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showDashboard" ng-click="gotoDeviceFirmware()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.outageMapDash" href="" class="configNav"><label class="cursorpoint"
+                                    >Outage Map</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showDashboard" ng-click="gotoSystemLog()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.nonTechnicalLossMapDash" href="" class="configNav"><label
+                                    class="cursorpoint" >Non-Technical Loss Map</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showDashboard" ng-click="gotoDataVINEHealth()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.networkCoverageMapDash" href="" class="configNav"><label
+                                    class="cursorpoint" >Network Coverage Map</label></a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+                <!-- Display Mapping tab and its sub tab -->
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-class = "showMapping ? ' ' : 'active'">
+                    <a ui-sref="help.mapping" href="" class="parentText" ui-sref="" ng-click="displayMapping()">
+                        <i class="fa fa-angle-down symbol" ng-show="showMapping"></i>
+                        <i class="fa fa-angle-up symbol" ng-hide="showMapping"></i>
+                        <span class="iconBlk">
+                            <img alt="#" src="../assets/images/delta-mapping.png" class="normalImg">
+                            <img alt="#" src="../assets/images/delta-mapping-white.png" class="activeImg">
+                        </span>
+                        <span class="text">Mapping</span>
+                    </a>
+                    <ul class="levelFirst">
+                        <li ui-sref-active="activeState" ng-hide="showMapping" ng-click="goToSummaryMap()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.summaryMap" href="" class="configNav"><label class="cursorpoint"
+                                    >Summary Map</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showMapping" ng-click="goToOutageMap()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.outageMap" href="" class="configNav"><label class="cursorpoint"
+                                    >Outage Map</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showMapping" ng-click="goToNonTechnical()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.nonTechnicalLossMap" href="" class="configNav"><label class="cursorpoint"
+                                    >Non-Technical Loss Map</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showMapping" ng-click="goToNetworkCoverageMap()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.networkCoverageMap" href="" class="configNav"><label class="cursorpoint"
+                                    >Network Coverage Map</label></a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- Display Graphing tab and its sub tab -->
+
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-class = "showGraphing ? ' ' : 'active'">
+                    <a ui-sref="help.graphing" href="" class="parentText" ui-sref="" ng-click="displayGraphing()">
+                        <i class="fa fa-angle-down symbol" ng-show="showGraphing"></i>
+                        <i class="fa fa-angle-up symbol" ng-hide="showGraphing"></i>
+                        <span class="iconBlk">
+                            <img alt="#" src="../assets/images/graphs.png" class="normalImg">
+                            <img alt="#" src="../assets/images/graphs-white.png" class="activeImg">
+                        </span>
+                        <span class="text">Graphing</span>
+                    </a>
+                    <ul class="levelFirst">
+                        <li ui-sref-active="activeState" ng-hide="showGraphing" ng-click="goToDtc()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.dtc" href="" class="configNav"><label class="cursorpoint"
+                                    >DTC</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showGraphing" ng-click="goToTransformer()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.transformer" href="" class="configNav"><label class="cursorpoint"
+                                    >Transformer</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showGraphing" ng-click="goToMeter()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.meter" href="" class="configNav"><label class="cursorpoint"
+                                    >Meter</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showGraphing" ng-click="goToMeter()"
+                        class="childStyle configNav">
+                        <a ui-sref="help.deltalink" href="" class="configNav"><label class="cursorpoint"
+                                    >DeltaLINK&trade;</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showGraphing" ng-click="goToOutage()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.outage" href="" class="configNav"><label class="cursorpoint"
+                                    >Outages</label></a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <!-- Display Reports tab and its sub tab -->
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-class = "showReport ? ' ' : 'active'">
+                    <a ui-sref="help.reports" href="" class="parentText" ui-sref="" ng-click="displayReports()">
+                        <i class="fa fa-angle-down symbol" ng-show="showReport"></i>
+                        <i class="fa fa-angle-up symbol" ng-hide="showReport"></i>
+                        <span class="iconBlk">
+                            <img alt="#" src="../assets/images/reports-gray.png" class="normalImg">
+                            <img alt="#" src="../assets/images/reports-white.png" class="activeImg">
+                        </span>
+                        <span class="text">Reports</span>
+                    </a>
+                    <ul class="levelFirst">
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToBilling()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.billing" href="" class="configNav"><label class="cursorpoint"
+                                    >Billing</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToCloudStatistics()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.cloud" href="" class="configNav"><label class="cursorpoint"
+                                    >Cloud Statistics</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToDatabaseStatistics()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.databaseStatistics" href="" class="configNav"><label class="cursorpoint"
+                                    >Database Statistics</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToNonTechnicalLoss()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.nonTechnicalLoss" href="" class="configNav"><label class="cursorpoint"
+                                    >Non-Technical Loss</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToNetworkResponse()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.network" href="" class="configNav"><label class="cursorpoint"
+                                    >Network Response</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToReportOutageMap()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.reportOutage" href="" class="configNav"><label class="cursorpoint"
+                                    >Outages</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToDelayedResponse()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.delayedResponse" href="" class="configNav"><label class="cursorpoint"
+                                    >Delayed Response</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToDeviceError()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.deviceError" href="" class="configNav"><label class="cursorpoint"
+                                    >Device Error</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToSolar()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.solar" href="" class="configNav"><label class="cursorpoint"
+                                    >Solar</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToBattery()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.battery" href="" class="configNav"><label class="cursorpoint"
+                                    >Battery</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToNetworkStatistics()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.networkStatistics" href="" class="configNav"><label class="cursorpoint"
+                                    >Network Statistics</label></a>
+                        </li>
+                        <li ui-sref-active="activeState" ng-hide="showReport" ng-click="goToDataRate()"
+                            class="childStyle configNav">
+                            <a ui-sref="help.DataRate" href="" class="configNav"><label class="cursorpoint"
+                                    >Data Rate</label></a>
+                        </li>
+                    </ul>
+                </li>
+                <li ui-sref-active="activeState" class="menuStyle configNav">
+                    <a href="" ui-sref="help.settings" ng-click="displaySettings()" >
+                        <span class="iconBlk">
+                            <img alt="#" src="../assets/images/settings-gray.png" class="normalImg">
+                            <img alt="#" src="../assets/images/settings-white.png" class="activeImg">
+                        </span>
+                        <span class="text">Settings</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

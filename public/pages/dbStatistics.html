@@ -1,0 +1,72 @@
+﻿<div id="dbStatisticsReportDiv" ng-show="isValidHostIframe">
+    <div class="title-wrapper mt-20">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="pageTitle"><strong>Database Statistics</strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="date-wrapper mt-20">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 dropdown form-group form-group-horizontal">
+                    <label>Start Date</label>
+                    <div class="input-wrap">
+                        <a class="dropdown-toggle" id="dropdownStart" role="button" data-toggle="dropdown" data-target="#" href="#">
+                            <div class="input-group date">
+                                <input type="text" class="form-control" data-ng-model="startingDate">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <datetimepicker data-ng-model="startingDate" data-datetimepicker-config="{ dropdownSelector: '#dropdownStart', renderOn: 'end-date-changed' }"
+                                data-on-set-time="startDateOnSetTime()" data-before-render="startDateBeforeRender($dates)"></datetimepicker>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 dropdown form-group form-group-horizontal">
+                    <label>End Date</label>
+                    <div class="input-wrap">
+                        <a class="dropdown-toggle" id="dropdownEnd" role="button" data-toggle="dropdown" data-target="#" href="#">
+                            <div class="input-group date">
+                                <input type="text" class="form-control" data-ng-model="endingDate">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <datetimepicker data-ng-model="endingDate" data-datetimepicker-config="{ dropdownSelector: '#dropdownEnd', renderOn: 'start-date-changed' }"
+                                data-on-set-time="endDateOnSetTime()" data-before-render="endDateBeforeRender($view, $dates, $leftDate, $upDate, $rightDate)"></datetimepicker>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div><button class="yellowBtn" ng-click="gdata()">Get Data</button></div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="grid-wrapper mt-20">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6" ng-if="showTable">
+                    <h4 class="gridTitle"><strong>Transactions Detail</strong></h4>
+                    <div ui-grid="transactionsGrid" ui-grid-edit ui-grid-exporter ui-grid-selection ui-grid-resize-columns ui-grid-filter-container
+                        class="">
+                    </div>
+                </div>
+                <div class="col-sm-6" ng-if="showTable">
+                    <h4 class="gridTitle"><strong>Errors Detail</strong></h4>
+                    <div ui-grid="errorDetailGrid" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns
+                        ui-grid-filter-container class="">
+                    </div>
+
+                </div>
+                <div class="col-sm-12">
+                    <div ui-view></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

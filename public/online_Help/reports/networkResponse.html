@@ -1,0 +1,128 @@
+
+<div class="pagetitle-wrap">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/icon_networkresponse2.png"  class="heading_icon"/></span> Network
+            Response
+        </h3>
+    </div><div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Creating a Report
+                    </a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Reading the Report</a>
+                    <a ng-click="tabChange('exportingReport')" href="" ng-class = "tabs.exportingReport  ? 'active' : ''">Sorting the Report
+                    </a>
+                    <a ng-click="tabChange('addReport')" href="" ng-class = "tabs.addReport  ? 'active' : ''">Filtering the Report</a>
+                    <a ng-click="tabChange('filterReport')" href="" ng-class = "tabs.filterReport  ? 'active' : ''">Exporting the Report
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Creating a Report </h1>
+
+                    <p class="tabParagraph">
+
+                        To create a report, begin by choosing a timeframe by clicking on the time picker, choosing a
+                        date,
+                        an
+                        hour, and the minute. Then, after filling this in, click the "Create Report" button. The report will
+                        instantly begin to load.
+
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/networkResponseDateandTime.PNG" /></div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Reading the Report </h1>
+
+                    <p class="tabParagraph">
+                        The network response report shows the percentage of times that the devices in a DTC responded to
+                        a
+                        request for information over the specified time period. The report contains four columns.
+                    </p>
+                    <ul class="tabList">
+                        <li>1. <strong>DTC ID:</strong> The ID of the DTC where the transformer is grouped</li>
+                        <li>2. <strong>Start Time:</strong> The start time specified when the report was created</li>
+                        <li>3. <strong>End Time:</strong> The end time specified when the report was created</li>
+                        <li>4. <strong>Read Percentage:</strong> The perecentage of times that the devices grouped to
+                            the
+                            DTC
+                            responded correctly over the start time and end time</li>
+                    </ul>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/networkresponselisthelp.png" /></div>
+                    <p class="tabParagraph">
+                        If the report has a large amount of data, it might separate into pages. In this case, you can
+                        choose how
+                        many entries to display, or which page to show, from the pagination tool bar in the bottom left
+                        of the
+                        report.
+                    </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/paginationToolbar.PNG" /></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" ng-show="tabs.exportingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Sorting the Report </h1>
+
+                    <p class="tabParagraph">
+                        To sort the report, click the header of whichever column you would like to sort by. For
+                        instance,
+                        clicking on the DTC ID header will switch the column between the default display, ascending, and
+                        descending.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/sortingReportNetworkResponse.PNG" /></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" ng-show="tabs.addReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Filtering the Report </h1>
+
+                    <p class="tabParagraph">
+                        To filter out the report for only a specified DTC, just type the DTC's ID in the text box above
+                        the
+                        right corner of the list labeled "Search by DTC ID".
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/filterNetworkResponseRate.PNG" /></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" ng-show="tabs.filterReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Exporting a Report </h1>
+
+                    <p class="tabParagraph">
+                        The report gives four different options for exporting. You may export either all the data in the
+                        report
+                        or just the currently displayed data, in either a CSV format or a PDF format. To do this simply
+                        click on
+                        the export button in the top right corner of the report after filtering it for the desired data.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/exportButton.PNG" /></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

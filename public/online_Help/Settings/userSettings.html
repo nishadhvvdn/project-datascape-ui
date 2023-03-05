@@ -1,0 +1,78 @@
+<div class="pagetitle-wrap main-page-title">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/settings-white.png" /></span> Settings
+        </h3>
+    </div>
+<div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Saving the Settings
+                    </a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Temperature Unit Selection
+                    </a>
+                    <a ng-click="tabChange('exportingReport')" href="" ng-class = "tabs.exportingReport  ? 'active' : ''">Currency Unit Selection
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Saving the Settings</h1>
+
+                    <p class="tabParagraph">
+                        After changing the settings to your desired state, they may be saved by clicking the "Original
+                        View"
+                        button at the top right of the screen. Put a name for your new settings in the "name this view"
+                        text
+                        box, click the "make it default" checkbox, and then click the save button to set the new default
+                        settings.</p>
+                    <div class="tabimg-blk"><img alt="#" src="../assets/images/settingshelp.png" /></div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Temperature Unit Selection</h1>
+
+                    <p class="tabParagraph">
+                        To change the default temperature type displayed throughout the system from Celsius to
+                        Farhenheit or
+                        vice versa, just click the dropdown under user settings labeled "temperature" and select the
+                        desired
+                        setting. </p>
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/userSettings.PNG" /></div>
+                    <p class="tabParagraph">
+                        If the report has a large amount of data, it might separate into pages. In this case, you can
+                        choose how
+                        many entries to display, or which page to show, from the pagination tool bar in the bottom left
+                        of the
+                        report.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.exportingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Currency Unit Selection</h1>
+
+                    <p class="tabParagraph">
+                        To change the default currency type displayed throughout the system, just click the dropdown
+                        next to
+                        "amount per unit" to the desired setting. To change the cost per 1 KW (this is used when
+                        displaying
+                        a
+                        monetary value), simply type a new number into the text box next to the dropdown.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/settingsNonTechnical.PNG" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+<div class="pagetitle-wrap">
+        <h3 class="mb-0"><span class="refenceTitleimg"><img alt="#" src="../../assets/images/Icon_solarreport2.png"  class="heading_icon"/></span> Solar
+        </h3>
+    </div>
+<div class="home-pg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tab-blk">
+                    <a ng-click="tabChange('readingReport')" href="" ng-class = "tabs.readingReport  ? 'active' : ''">Creating a Report
+                    </a>
+                    <a ng-click="tabChange('sortReport')" href="" ng-class = "tabs.sortReport  ? 'active' : ''">Reading the Report </a>
+                    <a ng-click="tabChange('filterReport')" href="" ng-class = "tabs.filterReport  ? 'active' : ''">Sorting the Report
+                    </a>
+                    <a ng-click="tabChange('printReport')" href="" ng-class = "tabs.printReport  ? 'active' : ''">Filtering the Report
+                    </a>
+                    <a ng-click="tabChange('editReport')" href="" ng-class = "tabs.editReport  ? 'active' : ''">Exporting the Report
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.readingReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Creating a Report </h1>
+
+                    <p class="tabParagraph">
+                        To create a report, begin by choosing a timeframe by clicking on the time picker, choosing a
+                        date,
+                        an
+                        hour, and the minute. Then, after filling this in, click the "Create Report" button. The report will
+                        instantly begin to load.
+                    </p>
+
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/DatabaseDateTimepicker.PNG" /></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" ng-show="tabs.sortReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Reading the Report </h1>
+
+                    <p class="tabParagraph">
+                        The solar report shows the amount of total and average return over one and thirty days.
+                        The report
+                        contains five columns.
+                    </p>
+                    <ul class="tabList">
+                        <li>1. <strong>Serial Number:</strong> The serial number of the device with energy
+                            return</li>
+                        <li>2. <strong>Avg. 24h Return (KW):</strong> The average KW return from the device over
+                            the last
+                            twenty-four hours</li>
+                        <li>3. <strong>Total 24h Return (KW):</strong> The total KW return from the device over
+                            the last
+                            twenty-four
+                            hours</li>
+                        <li>4. <strong>Avg. 30 Day Return (KW):</strong> The average KW return from the device
+                            over the last
+                            thirty
+                            days</li>
+                        <li>5. <strong>Total 30 Day Return (KW):</strong> The total KW return from the device
+                            over the last
+                            thirty
+                            days</li>
+                    </ul>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/solorlisthelp.png" /></div>
+                    <p class="tabParagraph">
+                        If the report has a large amount of data, it might separate into pages. In this case,
+                        you can choose how
+                        many entries to
+                        display, or which page to show, from the pagination tool bar in the bottom left of the
+                        report.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.filterReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Sorting the Report </h1>
+
+                    <p class="tabParagraph">
+                        To sort the report, click the header of whichever column you would like to sort
+                        by. For instance,
+                        clicking on the serial number header will switch the column between the default
+                        display, ascending,
+                        and
+                        descending.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/solarSorting.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.printReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Filtering a Report </h1>
+
+                    <p class="tabParagraph">
+                        To filter out the report for only a specified serial number, just type
+                        the serial number in the text
+                        box
+                        above the right corner of the list labeled "Search by Serial Number".
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/solarFilter.PNG" /></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="tabs.editReport">
+            <div class="col-sm-12">
+                <div class="tab-content">
+                    <h1 class="tabTitle">Exporting a Report </h1>
+
+                    <p class="tabParagraph">
+                        The report gives four different options for exporting. You may
+                        export either all the data in the
+                        report
+                        or just the currently displayed data, in either a CSV format or
+                        a PDF format. To do this, simply
+                        click
+                        on the export button in the top right corner of the report after
+                        filtering it for the desired data.
+                    </p>
+
+                    <div class="tabimg-blk"><img alt="#" src="../../assets/images/exportButton.PNG" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
