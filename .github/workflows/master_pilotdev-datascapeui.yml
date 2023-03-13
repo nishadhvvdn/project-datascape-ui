@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'pilotdev-datascapeUI'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_857C8B8DE5244A0CBBFB83D44003EE0D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F80994D0163346BFAE142D35D3D581DB }}
           package: .
