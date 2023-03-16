@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getResponseData,
+  postResponseData,
   putResponseData,
   deleteResponseData,
 } from "../common/Api";
-import { openCloseModal } from "../common/CustomModal";
 import moment from "moment";
+import { MessageIcon } from "../common/Validations";
 
-export default function Message() {
+export default function Message(props) {
   const [messageData, setMessageData] = useState([]);
   const [messageID, setMessageID] = useState(null);
   const [messageEditData, setMessageEditData] = useState({});
@@ -17,7 +18,12 @@ export default function Message() {
   useEffect(() => {
       ApiCalls();
   }, []);
-
+  
+  function RefreshPage() {
+    setMessageData([]);
+    setPage(0);
+    getMessageData(0);
+  }
   const ApiCalls = async () => {
     await getMessageData(page);
   }  
@@ -39,7 +45,7 @@ export default function Message() {
 
   async function getMessageDataById(message) {
     await getResponseData(
-      `GetMessageById?message_id=${message.message_id}`
+      `GetMessageById?_id=${message._id}`
     ).then((res) => {
       if (res) {
         console.log(res.data.MessageDetailsById[0], "GetMessageById");
@@ -48,7 +54,7 @@ export default function Message() {
         setMessageEditData(res.data.MessageDetailsById[0]);
         if (!res.data.MessageDetailsById[0]?.is_read) {
           updateMessageData(
-            res.data.MessageDetailsById[0]?.message_id,
+            res.data.MessageDetailsById[0]?._id,
             res.data.MessageDetailsById[0]?.is_read
           );
         }
@@ -56,18 +62,14 @@ export default function Message() {
     });
   }
 
-  useEffect(() =>{
-    console.log(messageData[0]);
-  },[messageData]);
-
   async function updateMessageData(m_id, is_read) {
-    await putResponseData(`EditMessageStatus?message_id=${m_id}`, {
+    await putResponseData(`EditMessageStatus?_id=${m_id}`, {
       is_read: !is_read,
     }).then((res) => {
       if (res) {
         setMessageData((e) =>
           e.map((item) => {
-            if (item.message_id === m_id) {
+            if (item._id === m_id) {
               return { ...item, is_read: !item.is_read };
             }
             return item;
@@ -76,9 +78,29 @@ export default function Message() {
         setMessageEditData((e) => {
           return { ...e, is_read: !is_read };
         });
+        props.messagecall()
       }
     });
   }
+
+  const deleteMessageData = async (id, type) => {
+    let eleId;
+    if (type === "list") {
+      eleId = `deleteIcon_${id}`;
+    } else {
+      eleId = `deleteIcon2_${id}`;
+    }
+    let btn = document.getElementById("fullpage-loader");
+    btn.style.display = "block";
+    await deleteResponseData(`messages/${id}`).then((res) => {
+      if (res) {
+        setShowEditDetails(false);
+        setMessageData((e) => e.filter((e) => e._id !== id));
+        btn.style.display = "none";
+        props.messagecall();
+      }
+    });
+  };
 
   function onAdd() {
     setMessageID("");
@@ -87,199 +109,109 @@ export default function Message() {
   const handleScroll = (event) => {
     const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
     if (scrollHeight - scrollTop === clientHeight) {
-      console.log("Scroll Down");
       getMessageData(page + 1);
     }
   };
 
-  const processChange = async (id,type) => { 
-    let eleId;
-    if(type ==="list"){
-      eleId = `deleteIcon_${id}`;
-    }else {
-      eleId = `deleteIcon2_${id}`;
-    }  
-    let btn = document.getElementById(eleId);
-    btn.style.pointerEvents = 'none';
-    btn.setAttribute("disabled", true);
-    await deleteResponseData(`DeleteMessage/`, {
-      message_id: id,
-    }).then((res) => {
-      if (res) {
-        setShowEditDetails(false);
-        setMessageData((e) => e.filter((e) => e.message_id !== id));
-        btn.style.pointerEvents = 'auto';
-        btn.removeAttribute("disabled");
-      }
-    });
-  };  
-
   return (
     <div className="pd-20">
-      <div className="delta-card">        
+      <div className="delta-card pd-15">        
         <div className="card-header">
           <div className="page-title">
             <h3>Message</h3>
+            <button type="button" className="btn btn-outline-dark" onClick={() => RefreshPage()}>
+              <i className="fa fa-refresh" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
-        <br/>
-        <div className="message">
-          <div className="row m-flex">
-            <div className="col-lg-4" style={{ height: "100%" }}>
-              <div className="m-card" onScroll={handleScroll}>
-                {messageData.map((message, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className={`m-item ${
-                        message.message_id === messageID ? "m-read" : ""
-                      } ${message.is_read ? "not-read" : ""}`}
-                    >
-                      <div className="m-item-container">
-                        <div>
-                          <img
-                            src={
-                              require("../assets/images/icons8-person-80.png")
-                                .default
-                            }
-                            alt="Profile"
-                            className="profile-pic"
-                          />
-                        </div>
-                        <div
-                          className="details"
-                          onClick={() => getMessageDataById(message)}
-                        >
-                          <div className="name-date">
-                            <p>{message.recipient}</p>
-                            <p>
-                              {moment(message.date).format("h:mm a, MMM YYYY")}
-                            </p>
-                          </div>
-                          <div className="message-status">
-                            <p className="msg-txt">{message.message}</p>
-                            <div>
-                              <span className={`m-${message.serverity}`}>
-                                {message.serverity}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="m-action-icon-item">
-                          <button
-                            className="d-tooltip icon-button"
-                            onClick={(e) =>
-                              updateMessageData(
-                                message.message_id,
-                                message.is_read
-                              )
-                            }
-                          >
-                            <i
-                              className={`fa ${
-                                message.is_read
-                                  ? "fa-envelope"
-                                  : "fa-envelope-open"
-                              }`}
-                            ></i>
-                            <div className="tooltiptext">
-                              Mark as {message.is_read ? "Unread" : "Read"}
-                            </div>
-                          </button>
-                          <button                            
-                            id={`deleteIcon_${message.message_id}`}
-                            className="d-tooltip icon-button"
-                            onClick={(e) =>
-                              processChange(message.message_id,'list')
-                            }
-                          >
-                            <i className="fa fa-trash-o"></i>
-                            <div className="tooltiptext">Delete</div>
-                          </button>
-                        </div>
+        <div className="message msg-scroll" onScroll={handleScroll}>
+          {messageData.map((message, index) => {
+              return (
+            <div key={index} data={message.is_read} className={`message-card ${message.is_read ? "" : "read-msg"}`}>
+              <div className="user-pic">
+                {MessageIcon(message?.type)}
+              </div>
+              <div className="msg-info">
+                <div className="message-sender">
+                  <div className="user-name">{message.recipient}</div>
+                  <div className="msg-time">{moment(message.date).format("h:mm a, DD MMM YYYY")}</div>
+                  <div className="msg-icon">
+                    <span className="d-tooltip env-btn" onClick={(e) =>
+                          updateMessageData(message._id, message.is_read)
+                        }>
+                      <i
+                        className={`fa ${
+                          message.is_read ? "fa-envelope" : "fa-envelope-open"
+                        }`}
+                      ></i>
+                      <div className="tooltiptext">
+                        Mark as {message.is_read ? "Unread" : "Read"}
                       </div>
-                    </div>
-                  );
-                })}
+                    </span>
+                    <span className="d-tooltip bin-btn" onClick={(e) => deleteMessageData(message._id, "list")}>
+                      <i className="fa fa-trash-o"></i>
+                      <div className="tooltiptext">Delete</div>
+                    </span>
+                  </div>
+                </div>
+                <div className="msg-severity">
+                  <div>
+                    {message.message}
+                    {/* <a href="#" data-toggle="modal" data-target="#exampleModal">
+                      more
+                    </a> */}
+                  </div>
+                  <div>
+                    <span className={`m-${message.severity}`}>
+                        {message?.severity}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="col-lg-8">
-              <div className="m-card">
-                {showEditDetails ? (
-                  <div className="message-details">
-                    <div className="message-header">
-                      <div className="message-info">
-                        <div className="m-action-icon">
-                          <button
-                            className="d-tooltip icon-button"
-                            onClick={(e) =>
-                              updateMessageData(
-                                messageEditData.message_id,
-                                messageEditData.is_read
-                              )
-                            }
-                          >
-                            <i
-                              className={`fa ${
-                                messageEditData.is_read
-                                  ? "fa-envelope"
-                                  : "fa-envelope-open"
-                              }`}
-                            ></i>
-                            <div className="tooltiptext">
-                              Mark as{" "}
-                              {messageEditData.is_read ? "Unread" : "Read"}
-                            </div>
-                          </button>
-                          <button
-                            id={`deleteIcon2_${messageEditData.message_id}`}
-                            className="d-tooltip icon-button"
-                            onClick={(e) =>
-                              processChange(messageEditData.message_id)
-                            }
-                          >
-                            <i className="fa fa-trash-o"></i>
-                            <div className="tooltiptext">Delete</div>
-                          </button>
-                        </div>
-                        <div>
-                          <img
-                            src={
-                              require("../assets/images/icons8-person-80.png")
-                                .default
-                            }
-                            alt="Profile"
-                            className="m-profile-pic"
-                          />
-                        </div>
-                        <div>
-                          <div>
-                            <p>{messageEditData.recipient}</p>
-                          </div>
-                          <p>
-                            {moment(messageEditData.date).format(
-                              "h:mm a, MMM YYYY"
-                            )}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <p>{messageEditData.message}</p>
-                  </div>
-                ) : (
-                  <div
-                    className="no-message"
-                    style={{ display: "flex", alignItems: "center" }}
+              )
+          })}
+          <div
+            className="modal fade"
+            id="exampleModal"
+            tabIndex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-body">
+                  erver 9.0 is activated by license, but the option of enable
+                  guest account is grey.erver 9.0 is activated by license, but
+                  the option of enable guest account is grey.erver 9.0 is
+                  activated by license, but the option of enable guest account
+                  is grey.erver 9.0 is activated by license, but the option of
+                  enable guest account is grey.erver 9.0 is activated by
+                  license, but the option of enable guest account is grey.erver
+                  9.0 is activated by license, but the option of enable guest
+                  account is grey.erver 9.0 is activated by license, but the
+                  option of enable guest account is grey.erver 9.0 is activated
+                  by license, but the option of enable guest account is
+                  grey.erver 9.0 is activated by license, but the option of
+                  enable guest account is grey.erver 9.0 is activated by
+                  license, but the option of enable guest account is grey.erver
+                  9.0 is activated by license, but the option of enable guest
+                  account is grey.
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-dismiss="modal"
                   >
-                    <img src={require("../assets/images/mesage.svg").default} />
-                    Inbox
-                  </div>
-                )}
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>  
       </div>
     </div>
   );

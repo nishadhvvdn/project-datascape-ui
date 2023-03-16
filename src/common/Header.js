@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Link, useHistory } from 'react-router-dom';
 import { postResponseData} from "../common/Api";
-import {openCloseModal} from '../common/CustomModal';
 
 export default function Header(){
     let history = useHistory();
@@ -9,7 +8,6 @@ export default function Header(){
         await postResponseData('logout', {})
         .then(res => {
           if(res){
-            openCloseModal(res.data.message, true);
             setTimeout(() => {                
                 history.push("/");
             }, 1000);

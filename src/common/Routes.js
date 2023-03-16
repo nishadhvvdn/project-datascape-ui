@@ -13,38 +13,74 @@ import Deltamapping from "../components/Deltamapping";
 import Settings from "../components/Settings";
 import Graphs from "../components/Graphs";
 import Message from "../components/Message";
-
+import Login from "../components/Login";
 export default function Routes() {
+  const [messageid, setMessageID]=useState("");
+
   return (
     <>
+      <div className="fullpage-loader" id="fullpage-loader">
+        <div className="loading-position">
+          <img src={require('../assets/images/loader.gif').default} alt="Loading ..."/>
+        </div>
+      </div>
       <Router>
         <Switch>
-          {/* <Route path="/login">
+        <Route path="/login">
+            {/* <Sidebar /> */}
+            <Login />
+          </Route>
+          <Route path="/app">
+            <Sidebar messageid={messageid}/>
             <App />
-          </Route> */}
+          </Route>
           <Route path="/deltamapping">
-            <Sidebar />
+            <Sidebar messageid={messageid}/>
             <Deltamapping />
           </Route>
           <Route path="/graphs">
-            <Sidebar />
+            <Sidebar messageid={messageid}/>
             <Graphs />
           </Route>
           <Route path="/report">
-            <Sidebar />
+            <Sidebar messageid={messageid}/>
             <Report />
           </Route>
           <Route path="/settings">
-            <Sidebar />
+            <Sidebar messageid={messageid}/>
             <Settings />
           </Route>
           <Route path="/message">
-            <Sidebar />
-            <Message />
+            <Sidebar messageid={messageid}/>
+            <Message messagecall={()=>{setMessageID(Math.random())}} />    
           </Route>
-          <Redirect from="/" to="/deltamapping" />
+          <Redirect from="/" to="/login" />
         </Switch>
       </Router>
     </>
   );
 }
+// export default function App() {
+
+//   return (
+//     <>
+//       <div className="fullpage-loader" id="fullpage-loader">
+//         <div className="loading-position">
+//           <img src={require('../assets/images/loader.gif').default} alt="Loading ..."/>
+//         </div>
+//       </div>
+//       <CustomModal />
+//       <Router>
+//         <Switch>
+//           <Route exact path="/login">
+//             <Login />
+//           </Route>
+//           <Route path="/home">
+//             <Home />
+//           </Route>
+//           <Redirect from="/" to="/login" />
+//         </Switch>
+//       </Router>
+//     </>
+//   );
+// }

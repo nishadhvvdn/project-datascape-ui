@@ -130,13 +130,27 @@ ul {
   width:150px;
   height: 100vh;
   background: #1F1F1F;
+  overflow-y: auto;
+  &::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #1F1F1F;
+  }
+  &::-webkit-scrollbar
+  {
+    width: 1px;
+    background-color: #1F1F1F;
+  }
+  &::-webkit-scrollbar-thumb
+  {
+    background-color: #000000;
+  }
   .delta-logo{
     text-align: center;
     padding: 10px 0px;
     background: #000000;
   }
 }
-
 .navigation{
  ul{
   margin: 0px;
@@ -243,13 +257,16 @@ ul {
 
 .delta-card{ 
   height: 100vh;
-  padding: 10px 20px;
+  // padding: 10px 20px;
   .card-header{
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
     align-items: center;
     .page-title{
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
       h3{
         font-weight: 700;
       }
@@ -931,25 +948,288 @@ thead{
   border: none;
 }
 
-
-.no-message{
-  img{
-    width: 150px;
-    opacity: 0.3;
+.fullpage-loader {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: none;
+  position: absolute;
+  .loading-position {
+    top: 40%;
+    left: 40%;
+    position: absolute;
+    img {
+      width: 40%;
+      // visibility: hidden;
+      // display: none;
+    }
   }
 }
-.msg-wrapper{
-  padding: 10px 20px;
-}
+
 .pd-20{
-  padding: 20px;
   height: calc(100vh - 40px);
   .delta-card{
-    height: calc(100vh - 40px);
+    height: 100vh;
     background-color: #ffffff;
     border-radius: 10px;
     margin-left: 150px;
   }
+}
+.loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #fd0;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.message-menu{
+  display: flex;
+  align-items: center;
+  p{
+    margin: 0;
+  }
+  .message-count{
+    border-radius: 50%;
+    background: #00BE82;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+}
+.tenant-list{
+  table{
+    tr{
+      th,td{
+        min-width: 100px;
+      }
+      th:nth-child(1), td:nth-child(1){
+        text-align: center;
+        width: 120px;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      th:nth-child(2), td:nth-child(2){
+        min-width: 200px;
+      }
+      th:nth-child(3), td:nth-child(3){
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      th:nth-child(5), td:nth-child(5){
+        text-align: center;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      th:nth-child(7), td:nth-child(7){
+        width: 220px;
+      }
+      th:nth-child(8), td:nth-child(8){
+        width: 100px;
+        text-align: center;
+      }
+      th:nth-child(9), td:nth-child(9){
+        width: 100px;
+        text-align: center;
+      }
+      th:nth-child(10), td:nth-child(10){
+        text-align: center;
+        width: 100px;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+    }
+  }
+}
+
+.coil-list{
+  table{
+    tr{
+      th,td{
+        min-width: 100px;
+      }
+      th:nth-child(6), td:nth-child(6){
+        text-align: center;
+        width: 100px;
+        padding-left: 0px;
+        padding-right: 0px;
+      }  
+      th:nth-child(5), td:nth-child(5){
+        width: 210px;
+      }    
+    }
+  }
+}
+
+.firmware-list{
+  table{
+    tr{
+      th,td{
+        min-width: 100px;
+      }
+      th:nth-child(6), td:nth-child(6){
+        text-align: center;
+        width: 100px;
+        padding-left: 0px;
+        padding-right: 0px;
+      }  
+      th:nth-child(5), td:nth-child(5){
+        width: 210px;
+      }    
+    }
+  }
+}
+.btn.disabled, .btn:disabled, fieldset:disabled .btn{
+  background: #e9ecef !important;
+  border-color: black !important;  
+}
+.toast {
+  z-index: 100;
+}
+.toast-sub-text{
+  font-size: 12px;
+  margin-bottom: 5px;
+} 
+.toast-body{
+  background: #fff !important;    
+  img{    
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 50%;
+    padding: 5px;
+  } 
+}
+.display-flex{
+  display: flex;
+  gap: 5px;
+}
+.rounded-image {  
+  background: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 0 5px;
+}
+.message-action-item{
+  width: fit-content;
+  margin-left: auto;
+}
+.message-date{
+  font-size: 14px;
+}
+.message-card{
+  display: flex;
+  border:solid 1px #CCCCCC;
+  padding: 15px;
+  gap: 15px;
+  align-items: center;
+  background: #e9e9e9;
+}
+
+.user-pic .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: solid 1px #cccccc;
+}
+
+.msg-info{
+  flex: 1;
+}
+.message-sender{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  position: relative;
+  height: 30px;
+}
+.message-sender .user-name{
+  font-weight: 600;
+}
+.message-sender .msg-icon{
+  display: none;
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  gap: 5px;
+  align-items: baseline;
+}
+
+.message-card:hover{
+  -webkit-box-shadow: 0px 0px 13px 0px rgba(212,212,212,1);
+  -moz-box-shadow: 0px 0px 13px 0px rgba(212,212,212,1);
+  box-shadow: 0px 0px 13px 0px rgba(212,212,212,1);
+  border-radius: 5px;
+}
+.message-card:hover .message-sender .msg-icon{
+  display: block;
+}
+.message-card:hover .message-sender .msg-time{
+  display: none;
+}
+.msg-icon .env-btn, .msg-icon .bin-btn{
+  width:30px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: #e9e9e9;
+  text-align: center;
+  display: inline-block;
+}
+.msg-icon .env-btn img{
+  margin-top: 2px;
+}
+.msg-icon .bin-btn{
+  float: right;
+  margin-left: 5px;
+}
+.msg-icon .bin-btn i{
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.msg-severity{
+  display: flex;
+  justify-content: space-between;
+}
+.msg-severity div:last-child{
+  width: 150px;
+  text-align: right;
+}
+
+.msg-scroll{
+  overflow: auto;
+  overflow-x: hidden;
+  max-height: calc(100% - 60px);
+  padding: 5px;
+}
+
+.read-msg{
+  background-color: #ffffff;
+}
+.dropdown-item a{
+  color: #0083bf !important;
 }
 .message-count{
   border-radius: 50%;
@@ -966,4 +1246,7 @@ thead{
   position: absolute;
   right: 15px;
   bottom: 15px;
+}
+.pd-15{
+  padding: 15px;
 }
